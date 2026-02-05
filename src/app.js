@@ -15,6 +15,18 @@ app.use("/start" , (req , res)=>{
     res.send("start from the server")
 })
 
+app.get("/user" , (req , res)=>{
+    res.send("this is get call for the server")
+})
+
+app.post("/user" ,(req ,res)=>{
+    res.send("data sended successfully")
+})
+
+
+app.delete("/user" , (req , res)=>{
+    res.send("data deleted successsfully")
+})
 
 
 
