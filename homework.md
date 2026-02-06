@@ -23,3 +23,19 @@ HTTP --methods
 POST
 PUT
 GET
+
+expolore routing ? , + ,/,
+readign the query params
+reading dynamic routes
+
+<!-- lets start from the scratch -->
+
+multiple route handlers --play wiht the code
+next()
+next funnction and errors along with res.send()
+<!-- app.use("/route)" , rh , rh2 , rh3 , rh4 , rh5 , rh6); -->
+
+
+
+what is middle warew and how express js handling middleware
+ 
