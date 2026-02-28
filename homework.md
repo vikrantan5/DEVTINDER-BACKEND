@@ -38,4 +38,19 @@ next funnction and errors along with res.send()
 
 
 what is middle warew and how express js handling middleware
+ difference between the app.use and app.all
+
+ create a free cluster
+ install ongoose library
+ connect to database
+ then get th connection url
+ caalll the connect db function and connect to database before the serve r started
+
+
+ create a user schem in your laptop
+ create /sinup to addd data in databse
+ differene between js and json
+
+ add the expressjson middle ware
+ make the signup api dynamic from the end user
  
