@@ -370,6 +370,7 @@ const User = require("./models/user")
 
 app.use(express.json())
 
+require("dotenv").config()
 
 app.post("/signup" , async(req ,res)=>{
     
@@ -385,6 +386,9 @@ app.post("/signup" , async(req ,res)=>{
     
 })
 
+app.get("/user" , (req , res)=>{
+  const usermail=req.body 
+})
 
 
 connectDb().then(()=>{

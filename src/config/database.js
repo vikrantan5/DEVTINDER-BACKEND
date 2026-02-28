@@ -1,12 +1,11 @@
-// mongodb+srv://e-com:LCqtETDx9qGi0S2f@cluster0.8fq8yez.mongodb.net/?appName=Cluster0
-
 
 
 // const mongoose = require("mongoose")
 
 
 // const connectDB = async()=>{
-//     await mongoose.connect("mongodb+srv://e-com:LCqtETDx9qGi0S2f@cluster0.8fq8yez.mongodb.net/mytinder?appName=Cluster0")
+//     await mongoose.connect("
+// ")
 // }
 // module.exports= connectDB
 
@@ -34,7 +33,8 @@
 
 // const mongoose= require("mongoose")
 // const connectDB = async()=>{
-//     await mongoose.connect("mongodb+srv://e-com:LCqtETDx9qGi0S2f@cluster0.8fq8yez.mongodb.net/mytinder?appName=Cluster0")
+//     await mongoose.connect("m
+// er0")
 // }
 
 // connectDB().then(()=>{
@@ -50,7 +50,7 @@ const mongoose =require("mongoose")
 
 
 const connectDB =async ()=>{
-    await mongoose.connect("mongodb+srv://e-com:LCqtETDx9qGi0S2f@cluster0.8fq8yez.mongodb.net/mytinder?appName=Cluster0")
+    await mongoose.connect(process.env.MONGODB_URL)
 
 }
 
