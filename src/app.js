@@ -386,10 +386,85 @@ app.post("/signup" , async(req ,res)=>{
     
 })
 
-app.get("/user" , (req , res)=>{
-  const usermail=req.body 
+app.get("/user" , async(req , res)=>{
+  const usermail=req.body.email
+
+  try{
+      const validUser = await User.find({email:usermail})
+      if(validUser.length ===0){
+        res.status(404).send("User not found in DB")
+      }
+      else{
+         res.send(validUser)
+      }
+     
+  }
+  catch(err){
+    res.status(400).send("there is some error ")
+  }
+
 })
 
+
+
+
+app.get("/feed" ,async (req , res)=>{
+  try{
+     const user = await User.find({})
+  console.log(user)
+  res.send(user)
+
+  }
+  catch(err){
+    res.status(404).send("something went wrong")
+  }
+ 
+})
+
+
+app.delete("/delete",async (req , res)=>{
+   const user=req.body.userId
+  try{
+   
+    const luser = await User.findByIdAndDelete({_id:user})
+    res.send("user deleted succcessfully")
+  }
+  catch(err){
+    res.status(404).send("there is some eror")
+  }
+})
+
+app.patch("/update/:userId" , async(req , res)=>{
+  const idUser = req.params?.userId
+  const data = req.body
+console.log(idUser)
+ 
+  try{
+
+     const ALLOWED_UPDATES = [
+    "photoUrl" , "age" , "gender" , "about" , "skills"
+  ]
+
+  const isUpdateAllowed = Object.keys(data).every(k =>ALLOWED_UPDATES.includes(k))
+
+  if(!isUpdateAllowed){
+   throw new Error("update not allowed")
+  }
+
+  if(data?.skills.length >10){
+    throw new Error("Skills more than 1o not allowed")
+  }
+
+    const newUser = await User.findByIdAndUpdate({_id:idUser} , data  , {returnDocument:"after" ,
+      runValidators:true,
+    })
+    console.log(newUser)
+    res.send(newUser)
+  }
+  catch(err){
+    res.status(404).send("UPDATE FAILED")
+  }
+})
 
 connectDb().then(()=>{
   console.log("database is connected successfully")

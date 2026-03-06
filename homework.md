@@ -53,4 +53,27 @@ what is middle warew and how express js handling middleware
 
  add the expressjson middle ware
  make the signup api dynamic from the end user
- 
+ user.findone duplixccate email ids , which object retured
+ API-get user by email
+ API- feed api -get/fees-get all the user from the database
+ API-get user by ID
+ createa delete api
+ difference between patch and put
+ api to update
+
+
+ explore schema type option forma the doc
+
+ add required , uniqque ,  lowercae , min , minLength , trim , add fefault , 
+ create custom validators
+ improve the DB schen=ma   , ,put all aappropriate validations
+ add timestaps 
+
+
+DATA SANITISATION
+ API level validation in put and patch a
+
+ install validator and use validator fiinction explore validatore library 
+
+ it helps in sanitisartion also 
+ use vaalidator for pass , email and image url
