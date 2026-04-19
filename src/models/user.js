@@ -77,6 +77,10 @@ const userSchema =mongoose.Schema({
     },
     gender:{
         type:String,
+        enum:{
+            values:["male" , "female" , "other"],
+            message:`{VALUE} is njot valid gender`
+        },
         validate(value){ //only created when the doc is created 
             if(!["male" , "female" , "others"].includes(value)){
                 throw new Error("Gender data is not valid")
@@ -102,7 +106,7 @@ const userSchema =mongoose.Schema({
         type:[String]
     }
 
-} , { timestamps: true })
+} , { timestamps: true }) 
 
 
 userSchema.methods.getJWT =async function(){
