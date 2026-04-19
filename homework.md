@@ -114,3 +114,10 @@ read doc got express.ROuter
 create routes fodler for managing auth,profile ,request , routers
 create authRouter , profielROuter , requestRouter
 import these routers in appjs
+
+
+create POST/logout api
+create PATCH/profile edit
+CREATE PATCH/profile /password
+
+make you validate all data in every post
