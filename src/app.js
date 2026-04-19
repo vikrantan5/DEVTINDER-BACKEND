@@ -364,114 +364,28 @@
 
 const express =require("express")
 const app = express()
-
 const connectDb = require("./config/database")
-const User = require("./models/user")
-
-app.use(express.json())
-
 require("dotenv").config()
-
-app.post("/signup" , async(req ,res)=>{
-    
-
-  const user = new User(req.body)
-  try{
-    await user.save();
-    res.send("user added successfully")
-  }
-  catch(err){
-    res.status(400).send("error saving the user" +err.message)
-  }
-    
-})
-
-app.get("/user" , async(req , res)=>{
-  const usermail=req.body.email
-
-  try{
-      const validUser = await User.find({email:usermail})
-      if(validUser.length ===0){
-        res.status(404).send("User not found in DB")
-      }
-      else{
-         res.send(validUser)
-      }
-     
-  }
-  catch(err){
-    res.status(400).send("there is some error ")
-  }
-
-})
+const cookieParser =require("cookie-parser")
+app.use(express.json())
+app.use(cookieParser())
+const jwt  =require("jsonwebtoken")
 
 
+const authRouter =require("./routes/auth")
+const profileRouter =require("./routes/profile")
+const requestRouter =require("./routes/requests")
 
-
-app.get("/feed" ,async (req , res)=>{
-  try{
-     const user = await User.find({})
-  console.log(user)
-  res.send(user)
-
-  }
-  catch(err){
-    res.status(404).send("something went wrong")
-  }
- 
-})
-
-
-app.delete("/delete",async (req , res)=>{
-   const user=req.body.userId
-  try{
-   
-    const luser = await User.findByIdAndDelete({_id:user})
-    res.send("user deleted succcessfully")
-  }
-  catch(err){
-    res.status(404).send("there is some eror")
-  }
-})
-
-app.patch("/update/:userId" , async(req , res)=>{
-  const idUser = req.params?.userId
-  const data = req.body
-console.log(idUser)
- 
-  try{
-
-     const ALLOWED_UPDATES = [
-    "photoUrl" , "age" , "gender" , "about" , "skills"
-  ]
-
-  const isUpdateAllowed = Object.keys(data).every(k =>ALLOWED_UPDATES.includes(k))
-
-  if(!isUpdateAllowed){
-   throw new Error("update not allowed")
-  }
-
-  if(data?.skills.length >10){
-    throw new Error("Skills more than 1o not allowed")
-  }
-
-    const newUser = await User.findByIdAndUpdate({_id:idUser} , data  , {returnDocument:"after" ,
-      runValidators:true,
-    })
-    console.log(newUser)
-    res.send(newUser)
-  }
-  catch(err){
-    res.status(404).send("UPDATE FAILED")
-  }
-})
+app.use("/" , authRouter)
+app.use("/" , profileRouter)
+app.use("/" , requestRouter)
 
 connectDb().then(()=>{
   console.log("database is connected successfully")
   app.listen(3000, ()=>{
-  console.log("server is runnin on the port 3000")
+  console.log("server is running on the port 3000")
 })
 }).catch((err)=>{
-  console.log("server is not conneted successful;ly")
+  console.log("server is not conneted successfully")
 })
 

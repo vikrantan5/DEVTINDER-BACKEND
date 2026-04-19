@@ -77,3 +77,40 @@ DATA SANITISATION
 
  it helps in sanitisartion also 
  use vaalidator for pass , email and image url
+
+
+
+ validate data in sgnup apui and make helper function in utils 
+install bcrypt 
+creata password hash y
+andsave the useer
+
+install cookie parser
+just send dummy cookie
+
+install jsonwebtoken
+in login api after email and password veirification create jwt token and send it to  user
+resd the cookies inside the profile
+
+
+
+userAuth middleware 
+add the userAuth middleware in profile api amnd a new sendconnection request api
+
+set the expiry of jwt  token and cookies to 7 days
+
+
+create user schema method to create getJWT()
+
+create Userschema method to comparepassword(passwordInputByUser)
+
+
+<!-- go and explore tinder -->
+create   list of apis
+then maake a group for routers
+
+
+read doc got express.ROuter
+create routes fodler for managing auth,profile ,request , routers
+create authRouter , profielROuter , requestRouter
+import these routers in appjs
