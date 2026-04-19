@@ -121,3 +121,15 @@ create PATCH/profile edit
 CREATE PATCH/profile /password
 
 make you validate all data in every post
+
+
+
+
+
+
+read more about th indexes why do we need index what is the advantage and disacvantage of indexes 
+create connectiopn req
+proper validation of the data
+think about the cornr cases
+$or query
+schema  pre functipon
