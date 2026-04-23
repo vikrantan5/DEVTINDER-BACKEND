@@ -133,3 +133,7 @@ proper validation of the data
 think about the cornr cases
 $or query
 schema  pre functipon
+
+
+% thought  process
+thought process --POST vs GET
