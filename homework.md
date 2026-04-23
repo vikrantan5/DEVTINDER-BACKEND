@@ -137,3 +137,7 @@ schema  pre functipon
 
 % thought  process
 thought process --POST vs GET
+
+read abotu ref and populate 
+
+GET /user/requsts/
