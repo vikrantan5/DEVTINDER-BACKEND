@@ -141,3 +141,10 @@ thought process --POST vs GET
 read abotu ref and populate 
 
 GET /user/requsts/
+
+login for get/feeed api
+ne , nin , $and ,$not
+
+
+pagination
+.skip() snd .limit())
