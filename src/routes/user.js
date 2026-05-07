@@ -56,7 +56,7 @@ userRouter.get("/user/connections" , userAuth , async(req , res)=>{
 
 userRouter.get("/feed" , userAuth , async(req ,res)=>{
     try{
-        //jo pahle se fiened h wo nhi dikhna chahiye
+        //jo pahle se friend h wo nhi dikhna chahiye
         //jisko ignore ya interested lkiya hu wo nhi dikhna chgahiye
         // accepted or rejected wala v nhi dikhna chaiye
         //his own card

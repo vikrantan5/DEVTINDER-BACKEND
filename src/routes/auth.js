@@ -17,12 +17,21 @@ authRouter.post("/signup", async (req, res) => {
 
     //never trust the req.body
     const user = new User({ firstName, lastName, email, password: passwordHash })
-    await user.save()
+    const saveuser = await user.save()
+    const token = await saveuser.getJWT()
+
+    // Set cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false, // Set to true in production with HTTPS
+      sameSite: "lax",
+      expires: new Date(Date.now() + 8 * 3600000) // 8 hours
+    })
     
     // Send JSON response
     res.status(200).json({ 
       message: "User added successfully",
-      user: { firstName, lastName, email }
+      user:saveuser
     })
   } catch (err) {
     res.status(404).json({ error: err.message })
