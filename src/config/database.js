@@ -50,7 +50,7 @@ const mongoose =require("mongoose")
 
 
 const connectDB =async ()=>{
-    await mongoose.connect(process.env.MONGODB_URL)
+    await mongoose.connect("mongodb+srv://e-com:vikrant123456@cluster0.8fq8yez.mongodb.net/testdata?appName=Cluster0")
 
 }
 
