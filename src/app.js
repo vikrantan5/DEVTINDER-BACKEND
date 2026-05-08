@@ -393,7 +393,7 @@ app.use("/" , userRouter)
 
 connectDb().then(()=>{
   console.log("database is connected successfully")
-  app.listen(3000, ()=>{
+  app.listen(7777, ()=>{
   console.log("server is running on the port 3000")
 })
 }).catch((err)=>{
